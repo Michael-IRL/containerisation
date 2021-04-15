@@ -1,13 +1,13 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: client-ingress-route
+  name: server-ingress-route
 spec:
   entryPoints:
     - web
   routes:
-  - match: PathPrefix(`/`)
+  - match: PathPrefix(`/api`)
     kind: Rule
     services:
-    - name: client-cluster-ip-service
-      port: 3000
+    - name: server-cluster-ip-service
+      port: 5000
